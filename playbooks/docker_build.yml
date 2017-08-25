@@ -1,0 +1,6 @@
+---
+- include: fetch_repos.yml
+  tags:
+    - repo
+
+- hosts: localhost

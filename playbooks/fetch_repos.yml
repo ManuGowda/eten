@@ -1,0 +1,17 @@
+---
+- hosts: localhost
+  vars:
+   branch: "{{ custom_branch | default('master') }}"
+  tasks:
+   - name: main
+     git: repo=git@github.com:ManuGowda/main.git
+          dest=../apps/main/
+          version={{ branch }}
+     tags:
+       - main
+   - name: api
+     git: repo=git@github.com:ManuGowda/api.git
+          dest=../apps/api/
+          version={{ branch }}
+     tags:
+       - api
